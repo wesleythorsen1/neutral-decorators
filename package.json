@@ -1,0 +1,43 @@
+{
+    "name": "neutral-decorators",
+    "version": "0.1.0",
+    "description": "A neutral decorator library for emitting TypeScript metadata.",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm5/index.js",
+    "es2015": "./dist/esm2015/index.js",
+    "types": "./dist/index.d.ts",
+    "keywords": [
+        "typescript",
+        "decorators",
+        "metadata",
+        "reflect-metadata",
+        "ioc"
+    ],
+    "author": "Wesley Thorsen",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wesleythorsen1/neutral-decorators.git"
+    },
+    "scripts": {
+        "build": "npm run build:cjs && npm run build:esm5 && npm run build:esm2015 && npm run build:types",
+        "build:cjs": "tsc --project ./tsconfig/tsconfig.cjs.json",
+        "build:esm5": "tsc --project ./tsconfig/tsconfig.esm5.json",
+        "build:esm2015": "tsc --project ./tsconfig/tsconfig.esm2015.json",
+        "build:types": "tsc --project ./tsconfig/tsconfig.types.json",
+        "clean": "rimraf dist node_modules",
+        "prepublishOnly": "npm run clean && npm run build"
+    },
+    "dependencies": {
+        "reflect-metadata": "^0.2.2",
+        "tslib": "^2.8.1"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3",
+        "rimraf": "^6.0.1",
+        "typescript": "^4.9.5"
+    },
+    "files": [
+        "dist/**/*"
+    ]
+}
